@@ -6,6 +6,9 @@ import createSagaMiddleware from "redux-saga";
 import Router from "./router";
 import { createInitialReducer } from "./redux/reducers";
 import { sagas } from "./redux/sagas";
+
+//antd design style
+import "antd/dist/antd.css";
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
