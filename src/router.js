@@ -16,7 +16,6 @@ const routes = [
 ];
 class Router extends React.Component {
   render() {
-    debugger;
     return (
       <BrowserRouter>
         {routes.map((route, index) => {
