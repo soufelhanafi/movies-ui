@@ -1,8 +1,19 @@
 import React from "react";
-import Router from "./router";
 import { Provider } from "react-redux";
+import { createStore, applyMiddleware, compose } from "redux";
+import createSagaMiddleware from "redux-saga";
 
-import store from "./redux/reducers";
+import Router from "./router";
+import { createInitialReducer } from "./redux/reducers";
+import { sagas } from "./redux/sagas";
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(
+  createInitialReducer,
+  compose(applyMiddleware(sagaMiddleware))
+);
+
+sagaMiddleware.run(sagas);
 
 class App extends React.Component {
   render() {
