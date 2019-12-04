@@ -6,14 +6,18 @@ import "./styles.css";
 const { Header, Sider, Content } = Layout;
 
 class MainView extends React.PureComponent {
-  state = {
-    collapsed: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      collapsed: false
+    };
+  }
   toggle = () => {
     this.setState({
       collapsed: !this.state.collapsed
     });
   };
+
   render() {
     const { children } = this.props;
     return (
