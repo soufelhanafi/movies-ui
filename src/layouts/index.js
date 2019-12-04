@@ -1,9 +1,12 @@
-import React from "react";
-import { Layout, Menu, Icon } from "antd";
-import "antd/es/layout/style/css";
-import "./styles.css";
+import React from 'react';
+import { Layout, Icon } from 'antd';
 
-const { Header, Sider, Content } = Layout;
+import Menu from '../components/menu/index';
+
+import 'antd/es/layout/style/css';
+import './styles.css';
+
+const { Header, Content } = Layout;
 
 class MainView extends React.PureComponent {
   constructor(props) {
@@ -12,46 +15,19 @@ class MainView extends React.PureComponent {
       collapsed: false
     };
   }
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed
-    });
-  };
 
   render() {
-    const { children } = this.props;
+    const { children, routes } = this.props;
     return (
-      <Layout className="ant-layout">
-        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-            <Menu.Item key="1">
-              <Icon type="user" />
-              <span>nav 1</span>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="video-camera" />
-              <span>nav 2</span>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <Icon type="upload" />
-              <span>nav 3</span>
-            </Menu.Item>
-          </Menu>
-        </Sider>
+      <Layout className='ant-layout'>
+        <Menu routes={routes} />
         <Layout>
-          <Header style={{ background: "#fff", padding: 0 }}>
-            <Icon
-              className="trigger"
-              type={this.state.collapsed ? "menu-unfold" : "menu-fold"}
-              onClick={this.toggle}
-            />
-          </Header>
+          <Header style={{ background: '#fff', padding: 0 }}></Header>
           <Content
             style={{
-              margin: "24px 16px",
+              margin: '24px 16px',
               padding: 24,
-              background: "#fff",
+              background: '#fff',
               minHeight: 280
             }}
           >
