@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Authorize from '../../components/authorize/index';
 
 class Dashboard extends React.Component {
+  // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
   }
@@ -17,13 +19,13 @@ class Dashboard extends React.Component {
   render() {
     const { hello, value } = this.props;
     return (
-      <div>
+      <Authorize authorized={false} to={'/login'}>
         <button onClick={this.world}>world</button>
         <button onClick={this.joker}>joker</button>
         <h1>
           {hello} {value || 'What?'}
         </h1>
-      </div>
+      </Authorize>
     );
   }
 }
