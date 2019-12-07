@@ -1,41 +1,33 @@
 import React from 'react';
-import { Layout, Icon } from 'antd';
-
-import Menu from '../components/menu/index';
+import { Redirect } from 'react-router-dom';
+import PrivateView from './private/index';
 
 import 'antd/es/layout/style/css';
 import './styles.css';
-
-const { Header, Content } = Layout;
 
 class MainView extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      collapsed: false
+      collapsed: false,
+      isReload: true
     };
   }
 
+  isReload = () => {
+    if (this.state.isReload) {
+      this.setState({ isReload: false });
+    }
+  };
+
   render() {
-    const { children, routes } = this.props;
-    return (
-      <Layout className='ant-layout'>
-        <Menu routes={routes} />
-        <Layout>
-          <Header style={{ background: '#fff', padding: 0 }}></Header>
-          <Content
-            style={{
-              margin: '24px 16px',
-              padding: 24,
-              background: '#fff',
-              minHeight: 280
-            }}
-          >
-            {children}
-          </Content>
-        </Layout>
-      </Layout>
-    );
+    const { routes, children } = this.props;
+    if (this.state.isReload) {
+      this.setState({ isReload: false });
+      return <Redirect to={'/dashboard'} />;
+    }
+    // eslint-disable-next-line react/no-children-prop
+    return <PrivateView routes={routes} children={children} />;
   }
 }
 

@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
-import { Menu, Icon, Layout } from 'antd';
+import { Menu, Layout } from 'antd';
 import { Link } from 'react-router-dom';
 
 import './styles.scss';

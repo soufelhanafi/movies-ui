@@ -1,19 +1,19 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    debugger;
   }
 
   world = () => {
-    this.props.dispatch({ type: "world" });
+    this.props.dispatch({ type: 'world' });
   };
 
   joker = () => {
-    this.props.dispatch({ type: "Joker" });
+    this.props.dispatch({ type: 'Joker' });
   };
+
   render() {
     const { hello, value } = this.props;
     return (
@@ -21,7 +21,7 @@ class Dashboard extends React.Component {
         <button onClick={this.world}>world</button>
         <button onClick={this.joker}>joker</button>
         <h1>
-          {hello} {value ? value : "What?"}
+          {hello} {value || 'What?'}
         </h1>
       </div>
     );
