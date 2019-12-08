@@ -2,6 +2,9 @@
 import React from 'react';
 import { Menu, Divider } from 'antd';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import userActions from '../../../redux/user/actions';
 
 import './styles.scss';
 
@@ -14,7 +17,9 @@ class ProfilMenu extends React.Component {
   }
 
   logout = () => {
-    console.log('logout');
+    this.props.dispatch({
+      type: userActions.USER_LOGOUT
+    });
   };
 
   showMenu = () => {
@@ -36,7 +41,7 @@ class ProfilMenu extends React.Component {
           <Link to={'/update/password'}>Update Passowrd Passowrd</Link>
         </Menu.Item>
         <Divider />
-        <Menu.Item onClick={this.logout}></Menu.Item>
+        <Menu.Item onClick={this.logout}>Log out</Menu.Item>
       </Menu>
     );
     return (
@@ -48,4 +53,6 @@ class ProfilMenu extends React.Component {
   }
 }
 
-export default ProfilMenu;
+const mapStateToProps = ({ user }) => ({ user });
+
+export default connect(mapStateToProps)(ProfilMenu);

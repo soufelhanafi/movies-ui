@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import { Route, Redirect, BrowserRouter, Switch } from 'react-router-dom';
-
+import { ConnectedRouter } from 'connected-react-router';
 import MainView from './layouts/index';
 import Dashboard from './pages/dashboard';
 import Movies from './pages/movies';
@@ -13,14 +13,14 @@ const routes = [
     component: Dashboard,
     title: 'Dashboard',
     icon: 'fa fa-chart-line',
-    type: 'private'
+    type: 'menuLeft'
   },
   {
     path: '/movies',
     component: Movies,
     title: 'Movies',
     icon: 'fa fa-video-camera',
-    type: 'private'
+    type: 'menuLeft'
   },
   {
     path: '/login',
@@ -28,12 +28,20 @@ const routes = [
     title: 'Login',
     icon: 'fa fa-login',
     type: 'public'
+  },
+  {
+    path: '/update-password',
+    component: Login,
+    title: 'Login',
+    icon: 'fa fa-login',
+    type: 'profilMenu'
   }
 ];
 class Router extends React.Component {
   render() {
+    const { history } = this.props;
     return (
-      <BrowserRouter>
+      <ConnectedRouter history={history}>
         <MainView routes={routes}>
           <Switch>
             {routes.map((route, index) => (
@@ -46,7 +54,7 @@ class Router extends React.Component {
             <Route render={() => <Redirect to={'/dashboard'} />} />
           </Switch>
         </MainView>
-      </BrowserRouter>
+      </ConnectedRouter>
     );
   }
 }

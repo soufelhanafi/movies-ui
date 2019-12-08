@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import { Menu, Layout } from 'antd';
@@ -33,14 +34,19 @@ class WebMenu extends React.Component {
       >
         <Menu theme='dark' mode='inline' defaultSelectedKeys={['0']}>
           <div className='logo' />
-          {routes.map((item, index) => (
-            <Menu.Item key={index}>
-              <Link to={item.path}>
-                <i className={`${item.icon} icons`} />
-                {collapsed ? '' : item.title}
-              </Link>
-            </Menu.Item>
-          ))}
+          {routes.map((item, index) => {
+            if (item.type === 'menuLeft') {
+              return (
+                <Menu.Item key={index}>
+                  <Link to={item.path}>
+                    <i className={`${item.icon} icons`} />
+                    {collapsed ? '' : item.title}
+                  </Link>
+                </Menu.Item>
+              );
+            }
+            return null;
+          })}
         </Menu>
       </Sider>
     );

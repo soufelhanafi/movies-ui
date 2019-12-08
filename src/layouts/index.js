@@ -2,12 +2,14 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Spin } from 'antd';
 import PrivateView from './private/index';
 import PublicView from './public/index';
 
 import 'antd/es/layout/style/css';
 import './styles.css';
 
+const Layouts = { public: PublicView, private: PrivateView };
 class MainView extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -25,18 +27,22 @@ class MainView extends React.PureComponent {
 
   render() {
     const { routes, children } = this.props;
-    const { isLogged } = this.props.user;
+    const { isLogged, isLoading } = this.props.user;
+    // eslint-disable-next-line consistent-return
     const changeLayout = () => {
-      if (isLogged) {
+      if (isLoading) {
+        return <Spin spinning={isLoading}></Spin>;
+      }
+      if (isLogged && !isLoading) {
         return <PrivateView routes={routes} children={children} />;
       }
-      return <PublicView routes={routes} children={children} />;
+      if (!isLogged && !isLoading) {
+        return <PublicView routes={routes} children={children} />;
+      }
     };
     return changeLayout();
   }
 }
 
-function mapStateToProps(state) {
-  return state;
-}
+const mapStateToProps = ({ user }) => ({ user });
 export default connect(mapStateToProps)(MainView);
