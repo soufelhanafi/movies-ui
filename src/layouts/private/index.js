@@ -1,6 +1,5 @@
 import React from 'react';
 import { Layout } from 'antd';
-import { Redirect } from 'react-router-dom';
 
 import Menu from '../../components/menu/index';
 import TopBar from '../../components/topBar/index';
@@ -21,6 +20,7 @@ class MainView extends React.Component {
 
   render() {
     const { children, routes } = this.props;
+    debugger;
     return (
       <Layout className='ant-layout'>
         <Menu routes={routes} />

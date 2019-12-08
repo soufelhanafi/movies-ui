@@ -17,9 +17,9 @@ class Dashboard extends React.Component {
   };
 
   render() {
-    const { hello, value } = this.props;
+    const { hello, value } = this.props.dashboard;
     return (
-      <Authorize authorized={false} to={'/login'}>
+      <Authorize authorized={true} to={'/login'}>
         <button onClick={this.world}>world</button>
         <button onClick={this.joker}>joker</button>
         <h1>

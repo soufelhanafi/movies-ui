@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -23,18 +24,15 @@ class MainView extends React.PureComponent {
   };
 
   render() {
-    const { routes, children, isLogged } = this.props;
+    const { routes, children } = this.props;
+    const { isLogged } = this.props.user;
     const changeLayout = () => {
       if (isLogged) {
-        // eslint-disable-next-line react/no-children-prop
         return <PrivateView routes={routes} children={children} />;
       }
-      // eslint-disable-next-line react/no-children-prop
       return <PublicView routes={routes} children={children} />;
     };
     return changeLayout();
-
-    // eslint-disable-next-line react/no-children-prop
   }
 }
 

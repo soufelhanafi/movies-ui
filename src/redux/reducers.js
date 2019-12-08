@@ -1,15 +1,8 @@
-const initialState = {
-  hello: "hello",
-  value: ""
-};
+import { combineReducers } from 'redux';
+import user from './user/reducers';
+import dashboard from './dashboard/reducers';
 
-export function createInitialReducer(state = initialState, action) {
-  switch (action.type) {
-    case "world":
-      return { ...state, value: "world" };
-    case "Joker":
-      return { ...state, value: "Joker" };
-    default:
-      return state;
-  }
-}
+export default combineReducers({
+  user,
+  dashboard
+});
