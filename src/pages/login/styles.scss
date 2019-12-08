@@ -1,11 +1,31 @@
-#components-form-demo-normal-login .login-form {
-    max-width: 300px;
-}
+.form-login {
+    background-color: lavender;
+    padding: 15px;
+    margin-top: 10%;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgb(10, 10, 10);
 
-#components-form-demo-normal-login .login-form-forgot {
-    float: right;
-}
+    .login-header {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
 
-#components-form-demo-normal-login .login-form-button {
-    width: 100%;
+    .forgot-password {
+        line-height: 40px;
+        text-align: right;
+    }
+
+    .password {
+        margin-bottom: 0px;
+    }
+
+    .submit-button {
+        width: 100%;
+    }
+
+    .register-button {
+        width: 100%;
+        text-align: center;
+    }
 }

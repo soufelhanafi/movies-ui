@@ -17,7 +17,7 @@ export function* LOAD_CURRENT_USER() {
   console.log('LOAD_CURRENT_USER');
   yield put({
     type: actions.SET_STATE,
-    payload: { isLogged: true, isLoading: false }
+    payload: { isLogged: false, isLoading: false }
   });
 }
 
