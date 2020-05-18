@@ -1,0 +1,21 @@
+.mainSlider {
+  width: 250px !important;
+  flex: inherit !important;
+  max-width: 250px !important;
+
+  .image_logo {
+    width: 250px;
+    height: 65px;
+  }
+
+  .icons {
+    margin-right: 5px;
+  }
+}
+
+.mainSliderCollapsed {
+  img {
+    width: 250px;
+    height: 65px;
+  }
+}

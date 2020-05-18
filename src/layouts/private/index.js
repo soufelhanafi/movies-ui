@@ -7,6 +7,7 @@ import TopBar from "../../components/topBar/index";
 
 import "antd/es/layout/style/css";
 import "./styles.scss";
+// import logo from "assets/images/login-form-background.jpeg";
 
 const {Content} = Layout;
 

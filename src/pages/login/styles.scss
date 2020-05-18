@@ -1,31 +1,35 @@
 .form-login {
-    background-color: lavender;
-    padding: 15px;
-    margin-top: 10%;
-    border-radius: 5px;
-    box-shadow: 3px 3px 3px rgb(10, 10, 10);
+  background-color: lavender;
+  padding: 15px;
+  margin-top: 10%;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgb(10, 10, 10);
 
-    .login-header {
-        text-align: center;
-        margin-top: 10px;
-        margin-bottom: 20px;
-    }
+  .login-header {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
 
-    .forgot-password {
-        line-height: 40px;
-        text-align: right;
-    }
+  .forgot-password {
+    line-height: 40px;
+    text-align: right;
+  }
 
-    .password {
-        margin-bottom: 0px;
-    }
+  .password {
+    margin-bottom: 0;
+  }
 
-    .submit-button {
-        width: 100%;
-    }
+  .submit-button {
+    width: 100%;
+  }
 
-    .register-button {
-        width: 100%;
-        text-align: center;
-    }
+  .register-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .error-message {
+    color: red;
+  }
 }
