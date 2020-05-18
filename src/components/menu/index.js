@@ -3,42 +3,29 @@
 import React from "react";
 import {Menu, Layout} from "antd";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 import imgsrc from "../../../src/assets/images/movies-logo.png";
 import styles from "./style.module.scss";
 
 const {Sider} = Layout;
 
 class WebMenu extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			collapsed: false
-		};
-	}
-
-	toggle = () => {
-		this.setState({
-			collapsed: !this.state.collapsed
-		});
-	};
-
 	render() {
-		const {routes} = this.props;
+		const {routes, router} = this.props;
+
 		const {collapsed} = this.state;
+		const defaultKey = routes.findIndex(
+			x => x.path == router.location.pathname
+		);
 
 		return (
-			<Sider
-				collapsible
-				collapsed={this.state.collapsed}
-				onCollapse={this.toggle}
-				className={
-					collapsed
-						? styles.mainSliderCollapsed + " mainSliderCollapsed"
-						: styles.mainSlider + " mainSlider"
-				}
-			>
+			<Sider collapsible className={styles.mainSlider + " mainSlider"}>
 				<img src={imgsrc} className={styles.image_logo} />
-				<Menu theme="dark" mode="inline" defaultSelectedKeys={["0"]}>
+				<Menu
+					theme="dark"
+					mode="inline"
+					defaultSelectedKeys={[defaultKey + ""]}
+				>
 					<div className="logo" />
 					{routes.map((item, index) => {
 						if (item.type === "menuLeft") {
@@ -59,4 +46,4 @@ class WebMenu extends React.Component {
 	}
 }
 
-export default WebMenu;
+export default connect(({router}) => ({router}))(WebMenu);

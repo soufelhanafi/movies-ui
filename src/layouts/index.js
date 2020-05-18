@@ -1,5 +1,4 @@
 import React from "react";
-import {Route, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import MainView from "./private";
 import PublicView from "./public";
@@ -10,9 +9,8 @@ class MainRoutes extends React.Component {
 		const {isLogged} = this.props.user;
 		if (type == "public") {
 			return <PublicView isLogged={isLogged} {...this.props} />;
-		} else {
-			return <MainView isLogged={isLogged} {...this.props} />;
 		}
+		return <MainView isLogged={isLogged} {...this.props} />;
 	}
 }
 

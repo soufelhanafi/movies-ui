@@ -14,7 +14,6 @@ export function* USER_LOGOUT() {
 }
 
 export function* LOAD_CURRENT_USER() {
-	console.log("LOAD_CURRENT_USER");
 	yield put({
 		type: actions.SET_STATE,
 		payload: {isLogged: true, isLoading: false}
@@ -23,7 +22,6 @@ export function* LOAD_CURRENT_USER() {
 
 export function* USER_LOGIN({payload}) {
 	const {email, password} = payload;
-	debugger;
 	if (email == "soufian@mail.com" && password == "pass_123") {
 		yield put({
 			type: actions.SET_STATE,

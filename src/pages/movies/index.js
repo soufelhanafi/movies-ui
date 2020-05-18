@@ -1,9 +1,14 @@
 import React from "react";
+import MoviesList from "./listOfMovies";
 
 class Movies extends React.Component {
-  render() {
-    return <h1>Movies</h1>;
-  }
+	render() {
+		return (
+			<>
+				<MoviesList />
+			</>
+		);
+	}
 }
 
 export default Movies;
